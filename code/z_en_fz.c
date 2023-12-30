@@ -1,5 +1,6 @@
 #include "z_en_fz.h"
 #include "assets/objects/object_fz/object_fz.h"
+#include "assets/scenes/dungeons/MIZUsin_bs/MIZUsin_bs_scene.h"
 
 #define FLAGS 0x00000030
 
@@ -51,6 +52,14 @@ void EnFz_Update(Actor* thisx, PlayState* play) {
     s16 param = this->actor.params;
     s16 rot = (param <= DL_BEACH_BALL_HILITE) ? 0x180 : 0x80;
     this->actor.shape.rot.y += rot;
+    
+    Input* input = &play->state.input[0];
+    bool btn = CHECK_BTN_ALL(input->press.button, BTN_DUP);
+    if(param == 0 && btn){
+        // Generate YouTube thumbnail
+        play->csCtx.script = SEGMENTED_TO_VIRTUAL(gIslandSceneCs);
+		gSaveContext.cutsceneTrigger = 1;
+    }
 }
 
 void EnFz_Draw(Actor* thisx, PlayState* play) {
