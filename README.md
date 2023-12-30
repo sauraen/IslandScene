@@ -1,6 +1,7 @@
 # IslandScene
 
-For Sauraen's video on F3DEX3 specular lighting and Fresnel.
+For [Sauraen's video](https://youtu.be/xnAGq_KJbYk) on F3DEX3 specular lighting
+and Fresnel.
 
 **This repository does not contain any code or assets copyrighted by Nintendo.**
 
